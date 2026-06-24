@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nagomi-ya Sushi — Kyoto-inspired Sushi Bar</title>
+  <meta name="description" content="Handcrafted bites, seasonal cuts, and warm rice. A Kyoto-inspired sushi bar serving chef specials, sashimi, nigiri and more.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landing">
+  <div class="page-texture"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <a class="logo-area" href="index.html" aria-label="Nagomi-ya Sushi home">
+      <div class="logo-badge">
+        <img class="logo-image" src="logo-removebg-preview.png" alt="Nagomi-ya Sushi logo">
+      </div>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav">
+      <a href="index.html#specials">Chef Specials</a>
+      <a href="menu.html">Menu</a>
+      <a href="index.html#video">Our Bar</a>
+      <a href="index.html#reviews">Reviews</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="menu.html" class="nav-cta nav-cta-desktop">Full Menu</a>
+      <button class="menu-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-controls="primaryNav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="top">
+      <div class="hero-copy reveal">
+        <p class="kicker">Nagomi-ya Sushi</p>
+        <h1>Handcrafted bites, seasonal cuts, and warm rice.</h1>
+        <p class="hero-sub">
+          A Kyoto-inspired sushi bar where every plate is sliced to order. Settle in,
+          let the chef guide the evening, and taste the season at its peak.
+        </p>
+        <div class="hero-cta">
+          <a href="menu.html" class="btn btn-primary">Explore the Menu</a>
+          <a href="#reserve" class="btn btn-ghost">Reserve a Table</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>12+</strong><span>Years of craft</span></div>
+          <div><strong>4.9★</strong><span>Guest rating</span></div>
+          <div><strong>Daily</strong><span>Market fish</span></div>
+        </div>
+      </div>
+
+      <div class="hero-media reveal">
+        <div class="hero-video-frame">
+          <video src="../public/video.mp4" autoplay muted loop playsinline></video>
+          <div class="hero-status">
+            <span>Now serving</span>
+            <strong>Seasonal Omakase</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Chef Specials ===== -->
+    <section class="section specials" id="specials">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">Chef's Picks</p>
+          <h2>Chef Specials, crafted today</h2>
+        </div>
+        <p class="section-sub">A short list of what the kitchen is most proud of this week.</p>
+      </div>
+      <div class="specials-grid" id="specialsGrid"></div>
+    </section>
+
+    <!-- ===== Menu preview ===== -->
+    <section class="section menu-preview" id="menu">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">The Menu</p>
+          <h2>A taste of the full list</h2>
+        </div>
+        <a href="menu.html" class="text-link">View full menu &rarr;</a>
+      </div>
+      <div class="preview-grid" id="previewGrid"></div>
+    </section>
+
+    <!-- ===== Video showcase ===== -->
+    <section class="section video-showcase" id="video">
+      <div class="video-card reveal">
+        <video src="../public/video.mp4" autoplay muted loop playsinline></video>
+        <div class="video-overlay"></div>
+        <div class="video-content">
+          <p class="kicker light">Inside the bar</p>
+          <h2>Watch the counter come alive.</h2>
+          <p>From the first cut to the final brush of nikiri — this is dinner at Nagomi-ya.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials ===== -->
+    <section class="section reviews" id="reviews">
+      <div class="section-head center reveal">
+        <p class="kicker">Guest Reviews</p>
+        <h2>Voices from the counter</h2>
+        <p class="section-sub center">What our guests say after their first bite.</p>
+      </div>
+      <div class="marquee" id="reviewMarquee">
+        <div class="marquee-track" id="reviewTrack"></div>
+      </div>
+    </section>
+
+    <!-- ===== Reserve / CTA ===== -->
+    <!-- <section class="section reserve" id="reserve">
+      <div class="reserve-card reveal">
+        <div class="reserve-copy">
+          <p class="kicker">Join us</p>
+          <h2>Reserve your seat at the bar</h2>
+          <p>Counter seating fills quickly. Book ahead and let us plan the evening around the day's best fish.</p>
+          <div class="reserve-info">
+            <div>
+              <span>Hours</span>
+              <strong>Tue–Sun · 5pm – 10:30pm</strong>
+            </div>
+            <div>
+              <span>Find us</span>
+              <strong>41 Riverside Walk, Kyoto Quarter</strong>
+            </div>
+          </div>
+        </div>
+        <form class="reserve-form" id="reserveForm">
+          <label>Name<input type="text" name="name" required placeholder="Your name"></label>
+          <label>Guests<input type="number" name="guests" min="1" max="12" value="2" required></label>
+          <label>Date<input type="date" name="date" required></label>
+          <label>Time<input type="time" name="time" value="19:00" required></label>
+          <button type="submit" class="btn btn-primary full">Request Reservation</button>
+          <p class="form-note" id="reserveNote" hidden>Thank you — we'll confirm by email shortly.</p>
+        </form>
+      </div>
+    </section> -->
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="logo-image" src="logo-removebg-preview.png" alt="Nagomi-ya Sushi logo">
+        <p>Kyoto-inspired sushi bar. Handcrafted bites, seasonal cuts, and warm rice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#specials">Chef Specials</a>
+        <a href="menu.html">Full Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#reserve">Reservations</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <p>41 Riverside Walk<br>Kyoto Quarter</p>
+        <p>Tue–Sun · 5pm – 10:30pm</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>hello@nagomi-ya.com</p>
+        <p>+1 (555) 014-2233</p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>© 2026 Nagomi-ya Sushi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="nav.js"></script>
+  <script src="landing.js"></script>
+</body>
+</html>

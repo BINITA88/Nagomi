@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nagomi-ya Sushi — Menu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="menu">
+  <div class="page-texture"></div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="logo-area" href="index.html" aria-label="Nagomi-ya Sushi home">
+      <div class="logo-badge">
+        <img class="logo-image" src="logo-removebg-preview.png" alt="Nagomi-ya Sushi logo">
+      </div>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav">
+      <a href="index.html#specials">Chef Specials</a>
+      <a href="menu.html">Menu</a>
+      <a href="index.html#video">Our Bar</a>
+      <a href="index.html#reviews">Reviews</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="menu.html" class="nav-cta nav-cta-desktop">Full Menu</a>
+      <button class="menu-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-controls="primaryNav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="menu-main">
+    <section class="menu-hero">
+      <div>
+        <p class="kicker">Nagomi-ya Sushi</p>
+        <h1>Handcrafted bites, seasonal cuts, and warm rice.</h1>
+        <p class="hero-sub">Filter by category, then tap any dish for details.</p>
+      </div>
+    </section>
+
+    <div class="category-bar" id="categoryList"></div>
+
+    <section class="menu-grid" id="menuGrid"></section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="nav.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
