@@ -15,7 +15,7 @@ window.NAGOMI_MENU = [
     prepTime: "10 min",
     calories: "210 kcal",
     chefNote: "Best enjoyed first, while the cut is at its coldest.",
-    image: "../public/FOOD1.png",
+    image: "public/FOOD1.png",
   },
   {
     id: "nagomi-nigiri-set",
@@ -31,7 +31,7 @@ window.NAGOMI_MENU = [
     prepTime: "15 min",
     calories: "430 kcal",
     chefNote: "Eat in the order served — light to rich.",
-    image: "../public/FOOD2.png",
+    image: "public/FOOD2.png",
   },
   {
     id: "charcoal-miso-cod",
@@ -47,7 +47,7 @@ window.NAGOMI_MENU = [
     prepTime: "20 min",
     calories: "380 kcal",
     chefNote: "The caramelised edge is the best bite — don't leave it.",
-    image: "../public/FOOD3.png",
+    image: "public/FOOD3.png",
   },
   {
     id: "garden-tempura",
@@ -63,7 +63,7 @@ window.NAGOMI_MENU = [
     prepTime: "12 min",
     calories: "260 kcal",
     chefNote: "Try a piece with just the smoked salt first.",
-    image: "../public/FOOD4.png",
+    image: "public/FOOD4.png",
   },
   {
     id: "tokyo-sunset-roll",
@@ -79,7 +79,7 @@ window.NAGOMI_MENU = [
     prepTime: "14 min",
     calories: "490 kcal",
     chefNote: "The sear is done table-side on request.",
-    image: "../public/FOOD5.png",
+    image: "public/FOOD5.png",
   },
   {
     id: "shiso-cucumber-maki",
@@ -95,7 +95,7 @@ window.NAGOMI_MENU = [
     prepTime: "10 min",
     calories: "180 kcal",
     chefNote: "Lovely as a palate cleanser mid-meal.",
-    image: "../public/FOOD6.png",
+    image: "public/FOOD6.png",
   },
   {
     id: "matcha-mochi",
@@ -111,7 +111,7 @@ window.NAGOMI_MENU = [
     prepTime: "8 min",
     calories: "240 kcal",
     chefNote: "Pairs beautifully with our genmaicha.",
-    image: "../public/FOOD7.png",
+    image: "public/FOOD7.png",
   },
   {
     id: "kyoto-spritz",
@@ -127,7 +127,7 @@ window.NAGOMI_MENU = [
     prepTime: "5 min",
     calories: "120 kcal",
     chefNote: "Ask for the sake float for an aperitif.",
-    image: "../public/FOOD8.png",
+    image: "public/FOOD8.png",
   },
   {
     id: "truffle-uni-toast",
@@ -143,7 +143,7 @@ window.NAGOMI_MENU = [
     prepTime: "12 min",
     calories: "310 kcal",
     chefNote: "Limited each evening — reserve when you book.",
-    image: "../public/FOOD9.png",
+    image: "public/FOOD9.png",
   },
 ];
 
