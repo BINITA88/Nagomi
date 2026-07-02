@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Himalayan Dining | Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;500;700" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            headline: ['Playfair Display', 'serif'],
+            'roboto-team': ['Inter', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            primary: '#c18b2f',
+            background: {
+              light: '#f6f5f1',
+              dark: '#0b0b0b'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { color-scheme: light; }
+    body { background: #000; }
+    .dhaka-pattern {
+      background-image: url('public/dhaka.png');
+      background-size: 240px;
+      background-repeat: repeat;
+    }
+    .dhaka-border-sides::before,
+    .dhaka-border-sides::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 38px;
+      background-image: url('public/dhaka.png');
+      background-size: 120px;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    .dhaka-border-sides::before { left: 0; }
+    .dhaka-border-sides::after { right: 0; }
+    .testimonial-track {
+      animation: testimonial-scroll 24s linear infinite;
+    }
+    @keyframes testimonial-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+  </style>
+</head>
+<body class="font-sans text-white">
+  <div id="popup" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="bg-white text-black w-[90%] max-w-md rounded-2xl shadow-2xl p-6 relative">
+      <button id="popupClose" class="absolute top-3 right-3 text-black">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="space-y-3">
+        <p class="uppercase tracking-[0.3em] text-[11px] text-primary font-semibold">Special</p>
+        <h3 class="text-2xl font-headline text-stone-900">Exclusive Dining Offer</h3>
+        <p class="text-stone-700">Enjoy a complimentary welcome drink with every table of four this week.</p>
+      </div>
+    </div>
+  </div>
+
+  <header class="fixed top-0 inset-x-0 z-40 bg-white/25 backdrop-blur-xl border-b border-white/20 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between text-black">
+      <div class="flex items-center gap-3">
+        <img src="nagomi/logo-removebg-preview.png" alt="Nagomi-ya Sushi" class="h-20 w-auto object-contain drop-shadow-lg">
+      </div>
+      <nav class="hidden" aria-hidden="true"></nav>
+      <a href="./nagomi/index.html" class="hidden md:inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-black font-bold text-sm tracking-[0.25em] shadow-md">Menu</a>
+      <button class="md:hidden border border-stone-300 text-black rounded-full p-2" aria-label="menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="relative text-white selection:bg-white selection:text-black pt-24">
+    <section class="relative h-[75vh] min-h-[645px] w-full flex items-center justify-center overflow-hidden" data-nav-theme="dark">
+      <div class="absolute inset-0 z-0">
+        <video src="public/hero.mp4" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"></video>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60"></div>
+      </div>
+      <div class="relative z-20 text-center px-4 max-w-5xl mx-auto space-y-6">
+        <span class="uppercase tracking-[0.4em] text-[10px] md:text-sm font-light text-white/70 mb-4 block drop-shadow-sm">
+          Nagomi-ya Sushi
+        </span>
+        <h1 class="text-4xl md:text-[96px] font-bold tracking-tight leading-[1.1] text-white">
+          The Art of<br>
+          <span class="italic font-light text-white block mt-1">Himalayan Cuisine</span>
+        </h1>
+        <p class="text-white text-lg md:text-[20px] max-w-3xl mx-auto font-light">
+          Experience the delicate balance of authentic spices and high-altitude traditions, meticulously crafted for the modern palate.
+        </p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 pt-2">
+          <a href="#signature" class="min-w-[180px] bg-primary text-black py-4 px-6 rounded-full font-bold tracking-widest text-sm hover:scale-105 transition-transform text-center">VIEW MENU</a>
+          <a href="#stories" class="min-w-[180px] border border-white/30 backdrop-blur-sm text-white py-4 px-6 rounded-full font-bold tracking-widest text-sm hover:bg-white hover:text-black transition-all text-center">OUR STORY</a>
+        </div>
+      </div>
+      <a href="#about-heritage" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white animate-bounce cursor-pointer z-20">
+        <span class="material-symbols-outlined text-5xl">keyboard_double_arrow_down</span>
+      </a>
+    </section>
+
+ <section id="signature" class="py-6 md:py-10 px-6 bg-background-light text-black" data-nav-theme="light">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-6">
+          <div class="flex flex-col items-start text-left space-y-2">
+            <span class="uppercase tracking-[0.3em] text-[11px] text-[#715c28] font-bold">Chef’s Signature Selections</span>
+            <h2 class="text-2xl md:text-4xl font-roboto-team font-bold text-[#273a14] leading-none tracking-tight">
+              Signature flavors <span class="italic font-medium text-[#715c28]">crafted daily</span>
+            </h2>
+          </div>
+          <a href="#signature" class="text-[#3d4a3e] font-bold text-xs flex items-center gap-2 bg-[#3d4a3e]/10 hover:bg-[#3d4a3e]/20 transition-all px-4 py-2 rounded-full border border-transparent shadow-sm whitespace-nowrap mb-1">
+            VIEW FULL MENU
+          </a>
+        </div>
+        <div class="relative overflow-hidden" id="menuContainer">
+          <div id="menuTrack" class="flex gap-4 transition-transform duration-500 ease-out"></div>
+        </div>
+        <div class="flex justify-end gap-2 mt-6">
+          <button id="prevMenu" class="flex h-8 w-24 items-center justify-center gap-1 px-2.5 py-1 border rounded-full text-[10px] font-semibold transition-colors shadow-sm text-[#3d4a3e] border-[#3d4a3e]/25 hover:bg-[#3d4a3e]/10">
+            <span class="material-symbols-outlined text-[11px]">chevron_left</span> Previous
+          </button>
+          <button id="nextMenu" class="flex h-8 w-24 items-center justify-center gap-1 px-2.5 py-1 border rounded-full text-[10px] font-semibold transition-colors shadow-sm text-[#3d4a3e] border-[#3d4a3e]/25 hover:bg-[#3d4a3e]/10">
+            Next <span class="material-symbols-outlined text-[11px]">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="stories" class="relative overflow-hidden py-6 md:py-10 bg-black" data-nav-theme="dark">
+      <div class="absolute inset-0">
+        <div class="h-full w-full bg-cover bg-center opacity-70" style="background-image: url('public/FOOD1.png')"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80"></div>
+      </div>
+      <div class="relative z-10 mx-auto flex max-w-7xl flex-col gap-10 px-6 text-center text-white">
+        <p class="text-xs uppercase tracking-[0.5em] text-[#f6c85f] drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">Testimonials</p>
+        <h2 class="text-4xl font-display font-bold md:text-6xl text-white">Voices of Excellence</h2>
+        <div class="mx-auto h-px w-24 bg-white/60"></div>
+        <div class="relative mx-auto w-full overflow-hidden">
+          <div id="testimonialTrack" class="testimonial-track flex gap-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-heritage" class="py-6 md:py-10 px-6 relative overflow-hidden bg-white text-black" data-nav-theme="light">
+      <div class="absolute inset-0  opacity-5 pointer-events-none"></div>
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="relative w-full h-[420px] md:h-[500px] overflow-hidden rounded-lg shadow-xl">
+            <img src="public/chura.png" alt="Heritage highlight" class="absolute inset-0 w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="space-y-5 text-black">
+          <div class="col-span-1 md:col-span-12 z-10 w-full space-y-1 flex flex-col items-start text-left">
+            <span class="uppercase tracking-[0.3em] text-[11px] text-[#715c28] font-semibold font-roboto-team text-left">Our Heritage</span>
+            <h2 class="w-full text-2xl md:text-4xl font-medium text-[#273a14] tracking-tight uppercase leading-[1.2]">
+              Nepalese &amp; Indian <br>
+              <span class="italic font-light text-[#715c28] block mt-1">Specialties</span>
+            </h2>
+          </div>
+          <p class="leading-relaxed mt-2 text-justify">
+            Experience luxury dining in the heart of Blackheath. Our chefs blend traditional techniques with modern presentation, ensuring every dish is a celebration of authentic spices and premium local ingredients.
+          </p>
+          <a href="#signature" class="inline-flex items-center gap-2 font-bold hover:gap-4 transition-all text-[#273a14]">
+            EXPLORE SPECIALTIES <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+   
+
+
+
+    <footer class="bg-[#636B2F] text-white pt-16 pb-10 border-t border-white/5" id="reserve">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="grid md:grid-cols-3 gap-12 text-white">
+          <div class="min-w-0">
+            <div class="mb-6">
+              <img src="nagomi/logo-removebg-preview.png" alt="Nagomi-ya Sushi" class="h-18 w-auto object-contain drop-shadow">
+            </div>
+            <p class="max-w-sm mb-6 leading-relaxed text-white/90">
+              Nagomi-ya Sushi brings refined Himalayan-inspired dishes and seasonal plates to the heart of Blackheath.
+            </p>
+            <div class="flex gap-4 mt-2 text-white/80">
+              <a href="#" class="hover:text-white transition-colors" aria-label="Facebook">
+                <span class="material-symbols-outlined">facebook</span>
+              </a>
+              <a href="#" class="hover:text-white transition-colors" aria-label="TikTok">
+                <span class="material-symbols-outlined">music_note</span>
+              </a>
+              <a href="#" class="hover:text-white transition-colors" aria-label="YouTube">
+                <span class="material-symbols-outlined">subscriptions</span>
+              </a>
+              <a href="#" class="hover:text-white transition-colors" aria-label="Instagram">
+                <span class="material-symbols-outlined">photo_camera</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="min-w-0">
+            <h4 class="text-white font-bold mb-6 tracking-widest uppercase text-xl">Location</h4>
+            <p class="mb-2 text-white/90">
+              41 Montpelier Vale,<br />Blackheath, London SE3 0TJ
+            </p>
+            <a href="https://www.google.com/maps?q=41+Montpelier+Vale+Blackheath+London+SE3+0TJ" target="_blank" rel="noopener" class="text-white underline text-sm block mb-4">
+              View Location
+            </a>
+            <div class="w-full h-32 rounded bg-black/20 border border-white/10 relative overflow-hidden">
+              <img src="public/dhaka.png" alt="Map placeholder" class="absolute inset-0 w-full h-full object-cover opacity-30">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-4xl">location_on</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-0">
+            <h4 class="text-white font-bold mb-6 tracking-widest uppercase text-xl">Opening Hours</h4>
+            <ul class="space-y-2 text-base text-white/90 mb-4">
+              <li class="flex justify-between gap-4"><span class="opacity-90">Tuesday - Thursday:</span><span class="font-medium text-right">2:00 pm - 10:30 pm</span></li>
+              <li class="flex justify-between gap-4"><span class="opacity-90">Friday:</span><span class="font-medium text-right">2:00 pm - 11:00 pm</span></li>
+              <li class="flex justify-between gap-4"><span class="opacity-90">Saturday:</span><span class="font-medium text-right">12:00 noon - 11:00 pm</span></li>
+              <li class="flex justify-between gap-4"><span class="opacity-90">Sunday:</span><span class="font-medium text-right">12:00 noon - 10:00 pm</span></li>
+              <li class="flex justify-between gap-4"><span class="opacity-90">Monday:</span><span class="font-medium text-right">Closed (open on bank holidays)</span></li>
+            </ul>
+            <div class="text-sm text-white/80 space-y-1 mb-2">
+              <p>Exclusive hire available on Mondays.</p>
+              <p>Same hours for takeaways and collections.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs tracking-[0.2em]">
+          <p class="uppercase text-white/90">© 2024 Nagomi-ya Sushi. All rights reserved.</p>
+          <p class="text-white/90">Managed by <span class="font-bold">AARAWAN</span></p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const menuItems = [
+      { title: "Himalayan Lamb", price: "£18.95", description: "Slow-cooked tender lamb with mountain herbs, ginger, and a touch of timur pepper.", badge: "SIGNATURE", image: "/FOOD1.png" },
+      { title: "King Prawn Shashlik", price: "£21.50", description: "Jumbo prawns marinated in saffron and yoghurt, chargrilled in our traditional tandoor oven.", badge: "AWARD WINNING", image: "public/FOOD2.png" },
+      { title: "Everest Paneer", price: "£14.25", description: "Cottage cheese cubes tossed with bell peppers and a unique blend of Everest mountain spices.", badge: "VEGETARIAN", image: "public/FOOD3.png" },
+      { title: "Gorkhali Chicken", price: "£16.75", description: "Chargrilled chicken tossed with fresh chillies, peppers, and our house gorkhali masala.", badge: "CHEF'S PICK", image: "public/FOOD4.png" },
+      { title: "Tandoori Salmon", price: "£19.50", description: "Scottish salmon fillet with fenugreek and mustard seed rub.", badge: "SEAFOOD", image: "public/FOOD5.png" },
+      { title: "Kheer Parfait", price: "£8.50", description: "Cardamom rice pudding layered with saffron cream and pistachio.", badge: "DESSERT", image: "public/FOOD6.png" },
+      { title: "Chili Momo", price: "£11.50", description: "Steamed dumplings tossed in roasted tomato and timur chili sauce.", badge: "STREET CLASSIC", image: "public/FOOD7.png" },
+      { title: "Saag Aloo", price: "£9.50", description: "Baby potatoes with spinach, fenugreek, and mountain mustard seeds.", badge: "VEGAN", image: "public/FOOD8.png" },
+      { title: "Masala Chai Crème", price: "£7.95", description: "Silky chai-infused custard with pistachio dust.", badge: "DESSERT", image: "public/FOOD9.png" }
+    ];
+
+    const testimonials = [
+      { name: "Amelia R.", post: "The flavours are delicate yet bold. Truly the art of Himalayan cuisine.", image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" },
+      { name: "James K.", post: "A beautiful balance of spice and presentation—loved every course.", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" },
+      { name: "Priya S.", post: "Reminds me of home, but elevated for a London evening.", image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80" },
+      { name: "Oliver P.", post: "Service, ambience, and food all aligned perfectly.", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=200&q=80" }
+    ];
+
+    const events = [
+      { id: "dashain", title: "Dashain Feast", date: "Oct 12, 2026", description: "Nine-course tasting menu celebrating the harvest moon.", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" },
+      { id: "tihar", title: "Tihar Lights Dinner", date: "Nov 02, 2026", description: "Live sitar, oil lamps, and a candlelit degustation.", image: "https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1200&q=80" }
+    ];
+
+    const menuTrack = document.getElementById('menuTrack');
+    const menuContainer = document.getElementById('menuContainer');
+    const prevMenu = document.getElementById('prevMenu');
+    const nextMenu = document.getElementById('nextMenu');
+    let itemsPerView = 3;
+    let menuIndex = 0;
+    let cardOffset = 0;
+
+    const updateItemsPerView = () => {
+      const width = window.innerWidth;
+      if (width < 768) itemsPerView = 1;
+      else if (width < 1024) itemsPerView = 2;
+      else itemsPerView = 3;
+    };
+
+    const computeOffset = () => {
+      if (!menuContainer) return;
+      const gap = 16;
+      const containerWidth = menuContainer.clientWidth;
+      const cardWidth = itemsPerView === 1 ? containerWidth * 0.88 : containerWidth / itemsPerView - gap;
+      cardOffset = cardWidth + gap;
+    };
+
+    const renderMenu = () => {
+      if (!menuTrack) return;
+      const isCarousel = menuItems.length > itemsPerView;
+      const list = isCarousel ? [...menuItems, ...menuItems] : menuItems;
+      menuTrack.innerHTML = list.map((item, idx) => `
+        <a class="group block bg-white rounded-xl overflow-hidden border border-slate-200 transition-all hover:-translate-y-2 hover:shadow-2xl ${isCarousel ? (itemsPerView === 1 ? 'basis-[88%] shrink-0' : itemsPerView === 2 ? 'basis-[48%] shrink-0' : 'basis-[32%] shrink-0') : ''}" href="#">
+          <div class="h-64 overflow-hidden relative">
+            <img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+          <div class="p-6 text-black">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="text-xl font-bold text-[#273a14]">${item.title}</h4>
+              <span class="text-black font-bold">${item.price}</span>
+            </div>
+            <p class="text-sm text-black font-light mb-4">${item.description}</p>
+            ${item.badge ? `<span class="text-[10px] tracking-widest font-bold text-black bg-primary/10 px-2 py-1 rounded">${item.badge}</span>` : ''}
+          </div>
+        </a>
+      `).join('');
+      if (isCarousel && cardOffset) {
+        menuTrack.style.transform = `translateX(-${menuIndex * cardOffset}px)`;
+      } else {
+        menuTrack.style.transform = '';
+      }
+    };
+
+    prevMenu.addEventListener('click', () => {
+      menuIndex = (menuIndex - 1 + menuItems.length) % menuItems.length;
+      menuTrack.style.transform = `translateX(-${menuIndex * cardOffset}px)`;
+    });
+    nextMenu.addEventListener('click', () => {
+      menuIndex = (menuIndex + 1) % menuItems.length;
+      menuTrack.style.transform = `translateX(-${menuIndex * cardOffset}px)`;
+    });
+
+    window.addEventListener('resize', () => {
+      updateItemsPerView();
+      computeOffset();
+      renderMenu();
+    });
+
+    updateItemsPerView();
+    computeOffset();
+    renderMenu();
+
+    // Testimonials
+    const testimonialTrack = document.getElementById('testimonialTrack');
+    const testimonialList = [...testimonials, ...testimonials];
+    testimonialTrack.innerHTML = testimonialList.map((card, index) => `
+      <div class="flex-shrink-0 px-2" style="min-width: 280px; max-width: 280px;">
+        <div class="h-full rounded-2xl border border-slate-100 bg-white p-4 shadow-xl hover:shadow-2xl transition-shadow flex flex-col gap-4">
+          <p class="mb-1 text-left text-base leading-relaxed text-[#273a14] italic font-medium flex-1">&ldquo;${card.post}&rdquo;</p>
+          <div class="flex items-center gap-3 border-t border-slate-50 pt-2">
+            <div class="relative h-12 w-12 overflow-hidden rounded-full border-2 border-[#3d5129]/10">
+              <img src="${card.image}" alt="${card.name} avatar" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="text-left">
+              <p class="text-sm font-bold text-[#273a14]">${card.name}</p>
+              <p class="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#273a14]">Guest</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Events
+    const eventCard = document.getElementById('event-card');
+    const eventError = document.getElementById('event-error');
+    const today = new Date();
+    const futureEvents = events.filter(e => new Date(e.date) >= today);
+    const featured = futureEvents.length ? futureEvents.sort((a, b) => new Date(a.date) - new Date(b.date))[0] : events[0];
+    if (!featured) {
+      eventError.textContent = 'Unable to load events.';
+      eventError.classList.remove('hidden');
+    } else {
+      eventCard.innerHTML = `
+        <a class="group relative w-full max-w-6xl mx-auto bg-white rounded-2xl overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.05)] hover:shadow-[0_24px_70px_rgba(0,0,0,0.10)] transition-all duration-700 flex flex-col md:flex-row items-stretch min-h-[360px] border border-stone-200/90 ring-1 ring-black/5">
+          <div class="relative w-full md:w-[40%] h-64 md:h-auto overflow-hidden">
+            <img src="${featured.image}" alt="${featured.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          </div>
+          <div class="w-full md:w-[60%] p-8 md:p-12 flex flex-col justify-center bg-white relative">
+            <div class="relative z-10 space-y-5">
+              <div class="space-y-2">
+                <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-primary">Upcoming Event</span>
+                <h3 class="text-3xl lg:text-4xl font-headline text-stone-950 leading-tight uppercase">${featured.title}</h3>
+              </div>
+              <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-[11px] font-bold uppercase tracking-widest text-stone-500">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm text-primary">calendar_today</span>
+                  ${featured.date}
+                </div>
+              </div>
+              <p class="text-stone-600 text-sm leading-relaxed font-light max-w-xl">${featured.description}</p>
+              <div class="pt-4">
+                <div class="flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-stone-950 group/btn transition-colors group-hover:text-primary">
+                  <span class="pb-0.5">Explore Event</span>
+                  <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      `;
+    }
+
+    // Popup
+    const popup = document.getElementById('popup');
+    const popupClose = document.getElementById('popupClose');
+    setTimeout(() => { popup.classList.remove('hidden'); popup.classList.add('flex'); }, 800);
+    popupClose.addEventListener('click', () => popup.classList.add('hidden'));
+  </script>
+</body>
+</html>
