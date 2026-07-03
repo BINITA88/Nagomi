@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nagomi-ya — Admin</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <!-- ===== Login ===== -->
+  <section id="loginView" class="login-view">
+    <form id="loginForm" class="login-card">
+      <h1>Nagomi-ya Admin</h1>
+      <p class="muted">Sign in to manage the site content.</p>
+      <label>Username<input type="text" id="loginUser" autocomplete="username" required /></label>
+      <label>Password<input type="password" id="loginPass" autocomplete="current-password" required /></label>
+      <button type="submit" class="btn primary">Sign in</button>
+      <p id="loginError" class="error" hidden></p>
+    </form>
+  </section>
+
+  <!-- ===== Dashboard ===== -->
+  <div id="appView" hidden>
+    <header class="topbar">
+      <div class="brand">Nagomi-ya <span>Admin</span></div>
+      <nav class="tabs">
+        <button class="tab active" data-tab="menu">Menu</button>
+        <button class="tab" data-tab="testimonials">Testimonials</button>
+        <button class="tab" data-tab="settings">Site Settings</button>
+      </nav>
+      <div class="topbar-right">
+        <span id="whoami" class="muted"></span>
+        <button id="logoutBtn" class="btn ghost">Log out</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- ===== Menu tab ===== -->
+      <section id="tab-menu" class="tab-panel active">
+        <div class="panel-head">
+          <h2>Menu Items</h2>
+          <button id="newMenuBtn" class="btn primary">+ New dish</button>
+        </div>
+        <div id="menuList" class="cards"></div>
+      </section>
+
+      <!-- ===== Testimonials tab ===== -->
+      <section id="tab-testimonials" class="tab-panel">
+        <div class="panel-head">
+          <h2>Testimonials</h2>
+          <button id="newTestimonialBtn" class="btn primary">+ New review</button>
+        </div>
+        <div id="testimonialList" class="cards"></div>
+      </section>
+
+      <!-- ===== Settings tab ===== -->
+      <section id="tab-settings" class="tab-panel">
+        <div class="panel-head">
+          <h2>Site Settings</h2>
+          <button id="saveSettingsBtn" class="btn primary">Save settings</button>
+        </div>
+        <p class="muted">Leave a field blank to keep the built-in design default.</p>
+        <form id="settingsForm" class="settings-grid"></form>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===== Modal (shared editor) ===== -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modalTitle">Edit</h3>
+        <button class="icon-btn" data-close>&times;</button>
+      </div>
+      <form id="editForm" class="modal-body"></form>
+      <div class="modal-foot">
+        <button type="button" class="btn ghost" data-close>Cancel</button>
+        <button type="button" id="modalSave" class="btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

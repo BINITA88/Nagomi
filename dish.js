@@ -1,8 +1,9 @@
 (() => {
-  const menuItems = window.NAGOMI_MENU || [];
   const main = document.getElementById("dishMain");
   if (!main) return;
 
+  (window.NAGOMI_READY || Promise.resolve()).then(() => {
+  const menuItems = window.NAGOMI_MENU || [];
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   const dish = menuItems.find((item) => item.id === id);
@@ -96,5 +97,6 @@
 
   requestAnimationFrame(() => {
     document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+  });
   });
 })();

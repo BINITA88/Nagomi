@@ -1,6 +1,4 @@
 (() => {
-  const menuItems = window.NAGOMI_MENU || [];
-
   const menuGrid = document.getElementById("menuGrid");
   const categoryList = document.getElementById("categoryList");
   const activeCategory = document.getElementById("activeCategory");
@@ -8,6 +6,9 @@
   if (!menuGrid || !categoryList) {
     return;
   }
+
+  (window.NAGOMI_READY || Promise.resolve()).then(() => {
+  const menuItems = window.NAGOMI_MENU || [];
 
   const categories = ["All", ...new Set(menuItems.map((item) => item.category))];
   let currentCategory = "All";
@@ -84,4 +85,5 @@
   renderCategories();
   renderMenu(currentCategory);
   updateActiveCategory();
+  });
 })();

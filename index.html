@@ -39,9 +39,9 @@
     <!-- ===== Hero ===== -->
     <section class="hero" id="top">
       <div class="hero-copy reveal">
-        <p class="kicker">Nagomi-ya Sushi</p>
-        <h1>Handcrafted bites, seasonal cuts, and warm rice.</h1>
-        <p class="hero-sub">
+        <p class="kicker" data-setting="heroKicker">Nagomi-ya Sushi</p>
+        <h1 data-setting="heroTitle">Handcrafted bites, seasonal cuts, and warm rice.</h1>
+        <p class="hero-sub" data-setting="heroSubtitle">
           A Kyoto-inspired sushi bar where every plate is sliced to order. Settle in,
           let the chef guide the evening, and taste the season at its peak.
         </p>
@@ -50,9 +50,9 @@
           <a href="#reserve" class="btn btn-ghost">Reserve a Table</a>
         </div>
         <div class="hero-stats">
-          <div><strong>12+</strong><span>Years of craft</span></div>
-          <div><strong>4.9★</strong><span>Guest rating</span></div>
-          <div><strong>Daily</strong><span>Market fish</span></div>
+          <div><strong data-setting="stat1Value">12+</strong><span data-setting="stat1Label">Years of craft</span></div>
+          <div><strong data-setting="stat2Value">4.9★</strong><span data-setting="stat2Label">Guest rating</span></div>
+          <div><strong data-setting="stat3Value">Daily</strong><span data-setting="stat3Label">Market fish</span></div>
         </div>
       </div>
 <!-- dddd -->
@@ -157,7 +157,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img class="logo-image" src="logo-removebg-preview.png" alt="Nagomi-ya Sushi logo">
-        <p>Kyoto-inspired sushi bar. Handcrafted bites, seasonal cuts, and warm rice.</p>
+        <p data-setting="footerTagline">Kyoto-inspired sushi bar. Handcrafted bites, seasonal cuts, and warm rice.</p>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
@@ -168,13 +168,13 @@
       </div>
       <div class="footer-col">
         <h4>Visit</h4>
-        <p>41 Riverside Walk<br>Kyoto Quarter</p>
-        <p>Tue–Sun · 5pm – 10:30pm</p>
+        <p data-setting="address">41 Riverside Walk<br>Kyoto Quarter</p>
+        <p data-setting="hours">Tue–Sun · 5pm – 10:30pm</p>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <p>hello@nagomi-ya.com</p>
-        <p>+1 (555) 014-2233</p>
+        <p data-setting="contactEmail">hello@nagomi-ya.com</p>
+        <p data-setting="contactPhone">+1 (555) 014-2233</p>
       </div>
     </div>
     <div class="footer-base">
@@ -217,6 +217,7 @@
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
 
+  <script src="config.js"></script>
   <script src="data.js"></script>
   <script src="nav.js"></script>
   <script src="landing.js"></script>

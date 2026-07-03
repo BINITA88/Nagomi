@@ -1,6 +1,11 @@
 // Shared menu data for Nagomi-ya Sushi.
 // Used by the landing page, the full menu page, and dish detail pages.
-window.NAGOMI_MENU = [
+//
+// These arrays are the FALLBACK content. On load, the site tries to fetch
+// live data from the backend (see config.js / window.NAGOMI_API_BASE). If the
+// backend is reachable and has data, it overrides these; otherwise the site
+// keeps working with the built-in values below.
+window.NAGOMI_MENU_FALLBACK = [
   {
     id: "yuzu-hamachi",
     title: "Yuzu Hamachi",
@@ -147,7 +152,7 @@ window.NAGOMI_MENU = [
   },
 ];
 
-window.NAGOMI_TESTIMONIALS = [
+window.NAGOMI_TESTIMONIALS_FALLBACK = [
   {
     name: "Amelia R.",
     role: "Food Writer",
@@ -189,3 +194,64 @@ window.NAGOMI_TESTIMONIALS = [
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80",
   },
 ];
+
+// ─────────────────────────────────────────────────────────────
+//  Live data loader (with fallback)
+//
+//  Sets window.NAGOMI_MENU / NAGOMI_TESTIMONIALS / NAGOMI_SETTINGS
+//  to the fallback immediately, then tries to override them from the
+//  backend. Consumers should wait on window.NAGOMI_READY before
+//  rendering so they get live data when it's available.
+// ─────────────────────────────────────────────────────────────
+(function () {
+  // Start from the built-in fallback so the site works even offline.
+  window.NAGOMI_MENU = window.NAGOMI_MENU_FALLBACK;
+  window.NAGOMI_TESTIMONIALS = window.NAGOMI_TESTIMONIALS_FALLBACK;
+  window.NAGOMI_SETTINGS = {};
+
+  var API_BASE = (window.NAGOMI_API_BASE || "").replace(/\/$/, "");
+
+  function fetchJSON(path) {
+    return fetch(API_BASE + path, { cache: "no-store" }).then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    });
+  }
+
+  window.NAGOMI_READY = (function () {
+    // No backend configured → keep fallbacks.
+    if (!API_BASE) return Promise.resolve();
+
+    return Promise.allSettled([
+      fetchJSON("/api/menu"),
+      fetchJSON("/api/testimonials"),
+      fetchJSON("/api/settings"),
+    ])
+      .then(function (results) {
+        var menu = results[0];
+        var testimonials = results[1];
+        var settings = results[2];
+
+        if (menu.status === "fulfilled" && Array.isArray(menu.value) && menu.value.length) {
+          window.NAGOMI_MENU = menu.value;
+        }
+        if (
+          testimonials.status === "fulfilled" &&
+          Array.isArray(testimonials.value) &&
+          testimonials.value.length
+        ) {
+          window.NAGOMI_TESTIMONIALS = testimonials.value;
+        }
+        if (
+          settings.status === "fulfilled" &&
+          settings.value &&
+          typeof settings.value === "object"
+        ) {
+          window.NAGOMI_SETTINGS = settings.value;
+        }
+      })
+      .catch(function () {
+        // Any unexpected error → keep whatever fallbacks are in place.
+      });
+  })();
+})();
