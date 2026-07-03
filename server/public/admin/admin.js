@@ -291,6 +291,11 @@
   }
   document.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", closeModal));
 
+  // Close on Escape (works even when a browser extension intercepts clicks).
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !$("#modal").hidden) closeModal();
+  });
+
   $("#modalSave").addEventListener("click", async () => {
     const form = $("#editForm");
     const payload = {};
